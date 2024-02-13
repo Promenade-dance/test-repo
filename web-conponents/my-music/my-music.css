@@ -1,0 +1,15 @@
+.main {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+svg.play-button {
+	width: 2em;
+	height: 2em;
+}
+
+.caption {
+	margin: 0;
+	padding: 0;
+}
