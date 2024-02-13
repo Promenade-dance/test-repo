@@ -4,9 +4,23 @@
 	gap: 0.5em;
 }
 
-svg.play-button {
+#play-pause-button {
 	width: 2em;
 	height: 2em;
+	
+	& #play {
+		opacity: 0;
+	}
+	& #pause {
+		opacity: 0;
+	}
+
+	&[data-state="play"] #play {
+		opacity: 1;
+	}
+	&[data-state="pause"] #pause {
+		opacity: 1;
+	}
 }
 
 .caption {
