@@ -3,7 +3,7 @@ export default class MyDetails extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: "open" });
-		this.shadowRoot.innerHTML = this.getHTML(this.innerHTML);
+		this.shadowRoot.innerHTML = this.getHTML();
 		this.addEventListeners();
 	}
 
@@ -35,6 +35,10 @@ export default class MyDetails extends HTMLElement {
 		}
 	}
 
+	get contentDiv() {
+		return this.shadowRoot.querySelector(".content");
+	}
+
 	addEventListeners() {
 		this.shadowRoot.querySelector(".title").addEventListener("click", () => {
 			this.#open = !this.#open;
@@ -42,7 +46,7 @@ export default class MyDetails extends HTMLElement {
 		});
 	}
 
-	getHTML(content) {
+	getHTML() {
 		return `
 			<link rel="stylesheet" href="${import.meta.resolve("./my-details.css")}"/>
 			<div class="title">
@@ -51,7 +55,7 @@ export default class MyDetails extends HTMLElement {
 				</svg>
 				<div class="title-content"></div>
 			</div>
-			<div class="roll"><div class="content">${content}</div></div>
+			<div class="roll"><div class="content"></div></div>
 			`;
 	}
 }

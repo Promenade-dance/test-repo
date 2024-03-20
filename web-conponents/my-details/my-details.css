@@ -28,6 +28,7 @@
 
 .content {
 	margin: 0;
+	overflow: hidden;
 
 	& p {
 		margin: 0;

@@ -1,8 +1,15 @@
 {
 	"title": "Испанский вальс",
-	"comment": "",
 	"scheme_short": "Схема короткая",
 	"scheme_long": "Схема длинная",
-	"music": [],
-	"video": []
+	"music": [
+		{
+			"title": "Испанский вальс",
+			"url": "Walzer Medley.mp3"
+		},
+		{
+			"title": "Испанский вальс 2",
+			"url": "Walzer Medley.mp3"
+		}
+	]
 }

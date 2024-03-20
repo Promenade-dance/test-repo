@@ -11,7 +11,7 @@
 				font-weight: normal;
 				font-style: normal;
 			}
-			:body {
+			:root {
 				--background-color: #fffaf4;
 				--background-color-2: #ffddb3;
 				--text-color: #b9663a;
@@ -20,6 +20,7 @@
 				color: #b9663a;
 				background-color: #fffaf4;
 				font-family: 'itim_cyrillic';
+				font-size: 23px;
 			}
 			h1 {
 				font-family: 'itim_cyrillic';
@@ -27,22 +28,32 @@
 			}
 		</style>
 		<script src="web-conponents/my-details/my-details.mjs" type="module"></script>
-		<script src="web-conponents/my-music/my-music.mjs" type="module"></script>
+		<script src="web-conponents/music-player/music-player.mjs" type="module"></script>
 	</head>
 	<body>
-		<my-music></my-music>
 		<div id="main"></div>
 		<script type="module">
 			import getDanceCard from "./get_dance_card.mjs";
+			import musicHandler from "./music_handler.mjs";
+
+			window.musicHandler = musicHandler;
+
 			let obj = {
 				"title": "Испанский вальс",
-				"comment": "",
-				"scheme_short": "Схема короткая<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs<br>sdfsdfs",
+				"scheme_short": "Схема короткая",
 				"scheme_long": "Схема длинная",
-				"music": [],
-				"video": []
+				"music": [
+					{
+						"title": "Испанский вальс",
+						"url": "Walzer Medley.mp3"
+					},
+					{
+						"title": "Испанский вальс 2",
+						"url": "Walzer Medley.mp3"
+					}
+				]
 			}
-			document.querySelector("#main").innerHTML = getDanceCard(obj);
+			document.querySelector("#main").appendChild(getDanceCard(obj));
 		</script>
 	</body>
 </html>

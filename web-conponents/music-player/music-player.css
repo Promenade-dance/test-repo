@@ -1,0 +1,120 @@
+.main {
+	margin: 0.2em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+#play-pause-button {
+	flex: 0 0 2em;
+	aspect-ratio: 1/1;
+}
+
+#info {
+	flex-grow: 1;
+	flex-shrink: 1;
+	min-width: 0;
+}
+
+#music-name {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+}
+
+@keyframes play-pause-show {
+	from {
+		opacity: 0;
+		transform: rotate(-120deg); 
+	}
+	to {
+		opacity: 1;
+		transform: rotate(0deg); 
+	}
+}
+
+@keyframes play-pause-hide {
+	from {
+		opacity: 1;
+		transform: rotate(0deg); 
+	}
+	to {
+		opacity: 0;
+		transform: rotate(120deg); 
+	}
+}
+
+:host([data-state="play"]) #play {
+	opacity: 1;
+	animation-name: play-pause-show;
+	animation-timing-function: ease;
+	animation-duration: 0.5s;
+}
+:host([data-state="play"]) #pause {
+	opacity: 0;
+	animation-name: play-pause-hide;
+	animation-timing-function: ease;
+	animation-duration: 0.5s;
+}
+:host([data-state="pause"]) #pause {
+	opacity: 1;
+	animation-name: play-pause-show;
+	animation-timing-function: ease;
+	animation-duration: 0.5s;
+}
+:host([data-state="pause"]) #play {
+	opacity: 0;
+	animation-name: play-pause-hide;
+	animation-timing-function: ease;
+	animation-duration: 0.5s;
+}
+
+@keyframes show-progress {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes hide-progress {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+#info[data-progress="show"] #progress {
+	opacity: 1;
+	animation-name: show-progress;
+	animation-timing-function: ease;
+	animation-duration: 3s;
+}
+
+#info:not([data-progress="show"]) #progress {
+	opacity: 0;
+	animation-name: hide-progress;
+	animation-timing-function: ease;
+	animation-duration: 0.5s;
+}
+
+#info[data-progress="show"] #music-name {
+	transform: translateY(0);
+}
+
+#info:not([data-progress="show"]) #music-name {
+	transform: translateY(35%);
+}
+
+#music-name {
+	transition: transform 0.5s ease;
+}
+
+my-audio-progress {
+	width: 100%;
+}
